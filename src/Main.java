@@ -6,6 +6,7 @@ public class Main {
 
         final byte YEAR = 12;
         final int PERCENT = 100;
+        // made constants because these values should never change
 
         System.out.print("Please enter the prinicipal: ");
         Scanner scan= new Scanner(System.in);
@@ -17,11 +18,13 @@ public class Main {
 
         System.out.print("Please enter the period of the mortgage: ");
         byte years = scan.nextByte();
+        // only need a byte for the number of years
         int numOfPayments = years * 12;
 
         scan.close();
 
         double mathPow = Math.pow(1 + monthlyInterestRate, numOfPayments);
+        // did this to simplify the mortgage calculation
 
         double monthlyPay = principal * ((monthlyInterestRate * mathPow) / (mathPow - 1));
         String monthlyFormatted = NumberFormat.getCurrencyInstance().format(monthlyPay);
