@@ -25,7 +25,6 @@ public class Main {
             if(value >= min && value <= max)
                 // the values passed to the method call are used here
                 break;
-            scan.close();
             System.out.println("Please enter a value between " + min + " and " + max);
         }
         return value;
