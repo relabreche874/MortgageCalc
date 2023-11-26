@@ -10,8 +10,18 @@ public class Main {
         double mortgage = calculateMortgage(principal, annualInterest, years);
 
         String monthlyFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        //move to paymentSchedule when ready
 
-        System.out.print("Mortage: " + monthlyFormatted);
+        System.out.print("\nMORTGAGE" + "\n--------" + "\nMonthly Payments: " + monthlyFormatted);
+        //move to paymentSchedule when ready
+    }
+
+    public static double paymentSchedule(int principal,
+                                         float monthlyInterest,
+                                         byte years){
+        double schedule;
+
+        return 0;
     }
 
     public static double readNumber(String prompt, double min, double max){
