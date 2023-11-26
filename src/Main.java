@@ -22,18 +22,18 @@ public class Main {
         while(true) {
             System.out.print("Please enter the annual interest rate: ");
             annualInterest = scan.nextFloat();
-            if(annualInterest >= 1)
+            if(annualInterest >= 1 && annualInterest <= 4.0)
                 break;
-            System.out.println("Please enter a value greater than 0");
+            System.out.println("Please enter a value between 1.0 and 4.0 ");
         }
 
         while(true) {
             System.out.print("Please enter the period of the mortgage: ");
             years = scan.nextByte();
-            if(years > 0)
+            if(years >= 1 && years <=30)
                 // only need a byte for the number of years
                 break;
-            System.out.println("Please enter a value greater than 0");
+            System.out.println("Please enter a value between 1 and 30");
         }
 
         scan.close();
