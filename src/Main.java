@@ -10,20 +10,26 @@ public class Main {
         float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 5);
         byte years = (byte) readNumber("Period of Mortgage: ", 1, 30);
 
+        printMortgage(principal, annualInterest, years);
+        printPaymentSchedule(years, principal, annualInterest);
+    }
+
+    public static void printMortgage(int principal, float annualInterest, byte years) {
         double mortgage = calculateMortgage(principal, annualInterest, years);
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
         System.out.println("\nMORTGAGE" + "\n--------" + "\nMonthly Payments: " + mortgageFormatted);
+    }
 
+    public static void printPaymentSchedule(byte years, int principal, float annualInterest) {
         System.out.println();
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
-
         for(short month = 1; month <= years * MONTHS_IN_YEAR; month++){
             double balance = calculateBalance(principal, annualInterest, years, month);
             System.out.println(NumberFormat.getCurrencyInstance().format(balance));
 
             }
-        }
+    }
 
     public static double readNumber(String prompt, double min, double max){
         // a new prompt will be passed each time the method is called
@@ -56,12 +62,10 @@ public class Main {
         return balance;
 
     }
-        // schedule = principal ((1 + month_interest)^num_of_payments)- (1 + month_interest)^payments_made) / ((1 + month_interest)^num_of_payments - 1))
 
     public static double calculateMortgage(int principal,
                                            float annualInterest,
                                            byte years){
-
 
         float monthlyInterestRate = annualInterest / MONTHS_IN_YEAR / PERCENT;
         short numOfPayments = (short)(years * MONTHS_IN_YEAR);
